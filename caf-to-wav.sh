@@ -14,5 +14,10 @@ for f in ./*.caf; do
   newName=$(echo "$f" | sed "s/.caf/.wav/g")
   echo "Creating $newName"
   # remember to quote it or spaces may misbehave
-  afconvert -f WAVE -d LEI32 "$f" -o "./transpiled/$newName"
+  # 64 Bit
+  # afconvert -f WAVE -d LEF64 "$f" -o "./transpiled/$newName"
+  # 32 Bit:
+  # afconvert -f WAVE -d LEI32 "$f" -o "./transpiled/$newName"
+  # 16 Bit
+  afconvert -f WAVE -d LEI16 "$f" -o "./transpiled/$newName"
 done
